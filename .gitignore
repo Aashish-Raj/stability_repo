@@ -1,0 +1,8 @@
+# add the env file to  te  git ignore
+.env
+
+# add the environment file 
+stability_env
+
+# add images file
+/images
