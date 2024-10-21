@@ -6,3 +6,7 @@ stability_env
 
 # add images file
 /images
+/final_res
+
+#  add the  image 
+blur_img.png
