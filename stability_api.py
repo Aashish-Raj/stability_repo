@@ -41,15 +41,15 @@ def upscale_fast(image):
 
 
 # function to  cretive upscale
-def upscale_creative(image):
+def upscale_conservative(image):
     response = requests.post(
-        "https://api.stability.ai/v2beta/stable-image/upscale/fast",
+        f"https://api.stability.ai/v2beta/stable-image/upscale/conservative",
         headers={
             "authorization": f"Bearer {stability_api_key}",
             "accept": "image/*"
         },
         files={
-            "image": open(image, "rb")
+            "image": open(image, "rb"),
         },
          data = {
             "prompt": "make the  image  more  clear",
@@ -62,7 +62,7 @@ def upscale_creative(image):
     # Check if the request was successful
     if response.status_code == 200:
         # Save the image data to a local file
-        with open('images\\blur_upscale_res1.png', 'wb') as file:
+        with open('images\\blur_upscale_conservative_res1.png', 'wb') as file:
             file.write(response.content)
         print("Image saved successfully.")
     else:
@@ -70,7 +70,7 @@ def upscale_creative(image):
         print("Error:", response.text)
 
 # Call the function to upscale fast
-upscale_creative("blur_upscale_test1.png")
+upscale_conservative("blur_upscale_test1.png")
 
 # function fro  image to  image upscale
 # def image_to_image_upscale(image_data):
